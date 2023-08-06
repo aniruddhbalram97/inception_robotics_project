@@ -20,7 +20,6 @@ function Login() {
         <Form.Control
           className={`${styles["auth-control"]}`}
           type="email"
-          placeholder="Enter email"
           value={loginEmail}
           onChange={(e) => setLoginEmail(e.target.value)}
         />
@@ -31,13 +30,12 @@ function Login() {
         <Form.Control
           className={`${styles["auth-control"]}`}
           type="password"
-          placeholder="Password"
           value={loginPassword}
           onChange={(e) => setLoginPassword(e.target.value)}
         />
       </Form.Group>
       <Form.Group className="text-center mt-4">
-        <Button className={`${styles[`${theme}-button`]}`} type="submit">
+        <Button className={`${theme}-button`} type="submit">
           Login
         </Button>
       </Form.Group>

@@ -2,15 +2,17 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Login from "./Login";
+import Registration from "./Registration";
+import ThemeSelector from "../Common/ThemeSelector";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 import styles from "./style.module.css";
-import Registration from "./Registration";
+
 function Auth() {
   const theme = useSelector((state) => state.appReducer.theme);
-  const auth = useSelector((state)=> state.appReducer.auth)
+  const auth = useSelector((state) => state.appReducer.auth);
 
   const AuthForm = () => {
     if (auth == "login") {
@@ -25,7 +27,8 @@ function Auth() {
       fluid
     >
       <Row className={`${styles["auth-row"]}`}>
-        <AuthForm/>
+        <AuthForm />
+        <ThemeSelector isOpen={false} />
       </Row>
     </Container>
   );

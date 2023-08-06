@@ -174,10 +174,7 @@ function Registration() {
         ) : null}
       </Form.Group>
       <Form.Group className="text-center mt-4">
-        <Button
-          className={`${styles[`${theme}-button`]}`}
-          onClick={() => validateForm()}
-        >
+        <Button className={`${theme}-button`} onClick={() => validateForm()}>
           Register
         </Button>
         <div className="text-center mt-3 pointer">
