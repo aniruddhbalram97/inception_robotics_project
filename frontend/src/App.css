@@ -7,16 +7,15 @@
   --dark-pri: rgb(82, 109, 130); 
   --dark-sec: rgb(156, 177, 191); 
   --dark-ter: rgb(221, 230, 237); 
-  --dark-white:rgb(255, 255, 255);
-  --dark-black:rgb(0, 0, 0);
 
   /*LIGHT PALETTE*/
   --light-bg: rgb(221, 230, 237);
   --light-pri:rgb(157, 178, 191);
   --light-sec:rgb(82, 109, 130);
   --light-ter:rgb(39, 55, 77);
-  --light-white:rgb(255, 255, 255);
-  --light-black:rgb(0, 0, 0);
+
+  --white:rgb(255, 255, 255);
+  --black:rgb(0, 0, 0);
 
   /*INFO COLORS*/
   --error: #d0312d;
@@ -61,4 +60,52 @@
 
 .pointer {
   cursor:pointer;
+}
+
+.font-1{
+  font-size:0.75rem;
+}
+
+.font-2{
+  font-size:1rem;
+}
+.font-3{
+  font-size:1.25rem;
+}
+.font-4 {
+  font-size:1.5rem;
+}
+.font-icon, .font-link{
+  font-size:1rem;
+}
+
+
+
+.dark-button {
+  min-width:30%;
+  background-color:var(--dark-white);
+  color:var(--dark-bg);
+  border:none;
+  outline:none;
+  box-shadow:none;
+}
+.dark-button:hover,  .dark-button:focus-visible, .dark-button:active,.dark-button:focus{
+  background-color:rgb(255,255,255,0.8);
+  color:var(--dark-bg);
+  outline:none;
+  box-shadow:none;
+}
+
+.light-button {
+  min-width:30%;
+  background-color:var(--light-ter);
+  color:var(--light-bg);
+  border:none;
+  outline:none;
+  box-shadow:none;
+}
+.light-button:hover,  .light-button:focus-visible,  .light-button:active,.light-button:focus{
+  background-color:rgb(39, 55, 77, 0.8);
+  outline:none;
+  box-shadow:none;
 }

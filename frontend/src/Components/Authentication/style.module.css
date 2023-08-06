@@ -32,7 +32,7 @@
 
 .dark-auth-button {
     min-width:30%;
-    background-color:var(--dark-white);
+    background-color:var(--white);
     color:var(--dark-bg);
     border:none;
     outline:none;

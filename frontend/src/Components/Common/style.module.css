@@ -1,0 +1,11 @@
+.theme-icon {
+    cursor:pointer;
+    text-align:center; 
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.5s;
+    width:100%;
+}
