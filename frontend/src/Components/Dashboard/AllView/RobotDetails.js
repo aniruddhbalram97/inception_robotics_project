@@ -17,7 +17,7 @@ function RobotDetails() {
   const selectedData = useSelector((state) => state.appReducer.selectedData);
   const theme = useSelector((state) => state.appReducer.theme);
   return (
-    <Container className={`${styles["robotdetails-container"]} ${theme}-bg`}>
+    <Container className={`${styles["robotdetails-container"]}`}>
       {/* <Row style={{ height: "100%" }}> */}
       <div className={`${styles["detail-image-container"]} ${theme}-ter-color`}>
         <img
@@ -30,7 +30,6 @@ function RobotDetails() {
         className={`${
           styles[`${theme}-detail-table-container`]
         } ${theme}-bg ${theme}-pri-color`}
-        fluid
       >
         <div
           className={`${styles["detail-table-title"]} ${

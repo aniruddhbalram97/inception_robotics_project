@@ -63,3 +63,20 @@ transition:all 0.5s;
 .detail-table-border{
     height:1px;
 }
+
+.nicedcv-container {
+    height:calc(60vh);
+    padding:0px!important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.filler {
+    font-size:2rem;
+    width:100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
