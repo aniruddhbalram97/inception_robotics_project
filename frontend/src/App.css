@@ -50,7 +50,12 @@
 .light-ter-color {
   color: var(--light-ter);
 }
-
+.white-color{
+  color:var(--white);
+}
+.black-color{
+  color:var(--black);
+}
 .error-color {
   color:var(--error);
 }

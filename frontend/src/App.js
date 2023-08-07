@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Auth from "./Components/Authentication/Auth";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import AllView from "./Components/Dashboard/AllView/AllView";
+import Analytics from "./Components/Dashboard/Analytics/Analytics";
 function App() {
   return (
     <Provider store={store}>
