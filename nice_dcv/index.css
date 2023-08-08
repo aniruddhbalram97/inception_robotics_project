@@ -1,0 +1,32 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+#display-container {
+    display:flex!important;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    object-fit: contain;
+}
+#dcv-display {
+    width:unset!important;
+    height:unset!important;
+    margin-top:none!important;
+    object-fit: contain;
+    overflow:unset;
+}
+
+#dcv-display img {
+    width:100%!important;
+    height:unset!important;
+    max-height:99vh;
+    position: unset!important;
+} 
+
+#dcv-display canvas {
+    width:100%!important;
+    height:unset!important;
+    max-height:99vh;
+    position: unset!important;
+}

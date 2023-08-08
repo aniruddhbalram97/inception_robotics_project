@@ -1,0 +1,12 @@
+{
+  "name": "nice_dcv_sdk_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "PORT=3001 HTTPS=true node index.html"
+  },
+  "author": "",
+  "license": "ISC"
+}
