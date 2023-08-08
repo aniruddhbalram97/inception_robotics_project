@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { authToggle } from "../../Redux/appReducer";
+
+import { authToggle, setUserDetails } from "../../Redux/appReducer";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 import styles from "./style.module.css";
-function Registration() {
+function Registration({ setAuth }) {
   const theme = useSelector((state) => state.appReducer.theme);
   const dispatch = useDispatch((state) => state.appReducer.dispatch);
 
@@ -14,6 +15,37 @@ function Registration() {
   const [regPassword, setRegPassword] = useState("");
   const [regRepassword, setRePassword] = useState("");
   const [infoLabel, setInfoLabel] = useState("");
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const body = {
+        user_email: regEmail,
+        user_password: regPassword,
+        user_name: "",
+      };
+      const response = await fetch("http://localhost:5000/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+      const parseRes = await response.json();
+
+      if (parseRes.token) {
+        localStorage.setItem("token", parseRes.token);
+        setAuth(true);
+        dispatch(setUserDetails(regEmail));
+        console.log("Register Successfully");
+      } else {
+        setAuth(false);
+        console.error(parseRes);
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
   function validateForm() {
     if (!regEmail && !regPassword && !regRepassword) {
@@ -119,12 +151,13 @@ function Registration() {
       });
       return;
     }
-    if (regPassword != regRepassword) {
+    console.log("");
+    if (regPassword !== regRepassword) {
       // invalid form, 0 special characters characters
       setInfoLabel({ type: "error", value: "Passwords mismatch" });
       return;
     }
-    setInfoLabel({ type: "success", value: "Form is valid" });
+    setInfoLabel({ type: "success", value: "All good, register!" });
   }
 
   useEffect(() => {
@@ -148,7 +181,7 @@ function Registration() {
         <Form.Label>Password</Form.Label>
         <Form.Control
           className={`${styles["auth-control"]}`}
-          type="password"
+          type="text"
           name="Reg Password"
           placeholder=""
           value={regPassword}
@@ -159,14 +192,16 @@ function Registration() {
         <Form.Label>Confirm Password</Form.Label>
         <Form.Control
           className={`${styles["auth-control"]}`}
-          type="password"
+          type="text"
           name="Reg Repassword"
           placeholder=""
           value={regRepassword}
           onChange={(e) => setRePassword(e.target.value)}
         />
         {infoLabel ? (
-          <Form.Text className={`${theme}-ter-color ${infoLabel.type}-color`}>
+          <Form.Text
+            className={`${theme}-ter-color ${theme}-${infoLabel.type}-color`}
+          >
             <b>
               <i>{infoLabel.value}</i>
             </b>
@@ -174,7 +209,10 @@ function Registration() {
         ) : null}
       </Form.Group>
       <Form.Group className="text-center mt-4">
-        <Button className={`${theme}-button`} onClick={() => validateForm()}>
+        <Button
+          className={`${theme}-button`}
+          onClick={(e) => handleRegister(e)}
+        >
           Register
         </Button>
         <div className="text-center mt-3 pointer">

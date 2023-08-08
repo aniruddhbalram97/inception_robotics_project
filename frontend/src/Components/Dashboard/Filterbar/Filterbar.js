@@ -13,16 +13,16 @@ import { testData } from "./../../../testData";
 
 function Filterbar() {
   const theme = useSelector((state) => state.appReducer.theme);
+  const requestedData = useSelector((state) => state.appReducer.requestedData);
   return (
-    <Container
-      className={`${styles[`${theme}-filterbar-container`]} ${theme}-bg`}
-      fluid
-    >
+    <Container className={`${styles[`${theme}-filterbar-container`]}`} fluid>
       <Row>
         <Col xs={12}>
-          {testData.map((data, idx) => {
-            return <Card data={data} />;
-          })}
+          {requestedData
+            ? requestedData.map((data, idx) => {
+                return <Card data={data} />;
+              })
+            : null}
           {/* <Card data={testData[0]} /> */}
         </Col>
       </Row>

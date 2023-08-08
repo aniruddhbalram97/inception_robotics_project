@@ -41,7 +41,7 @@ transition:all 0.5s;
     transition:all 0.5s;
 }
 .light-detail-table-container {
-    width:60%;
+    width:70%;
     min-width:300px;
     height: 95%;
     display:flex;
@@ -49,6 +49,7 @@ transition:all 0.5s;
     justify-content:space-around;
     background:var(--light-ter);
     border-radius:10px;
+    transition:all 0.5s;
 }
 .detail-table-row {
     display:flex;
@@ -65,8 +66,8 @@ transition:all 0.5s;
 }
 
 .nicedcv-container {
-    height:calc(60vh);
-    padding:0px!important;
+    height:60vh;
+    padding:20px!important;
     display: flex;
     flex-direction: column;
     align-items: center;

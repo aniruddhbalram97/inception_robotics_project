@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 
 import ThemeSelector from "../Common/ThemeSelector";
 import Signout from "./Signout";
@@ -11,7 +10,7 @@ import { FaTh, FaBars, FaRegChartBar } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import styles from "./style.module.css";
-const Sidenav = ({ children }) => {
+const Sidenav = ({ setAuth, children }) => {
   const theme = useSelector((state) => state.appReducer.theme);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +46,7 @@ const Sidenav = ({ children }) => {
       </div>
       <div className={`${styles["sidebar-link-section"]}`}>
         {menuItem.map((item, index) => (
-          <a
+          <div
             onClick={() => dispatch(toggleView(item.name))}
             className={`${styles[`${theme}-sidebar-link`]}`}
           >
@@ -58,14 +57,14 @@ const Sidenav = ({ children }) => {
             >
               {item.name}
             </div>
-          </a>
+          </div>
         ))}
       </div>
 
       <div className={`${styles["sidebar-footer"]}`}>
         <ProfileName isOpen={isOpen} />
         <ThemeSelector isOpen={isOpen} />
-        <Signout isOpen={isOpen} />
+        <Signout isOpen={isOpen} setAuth={setAuth} />
       </div>
     </div>
   );

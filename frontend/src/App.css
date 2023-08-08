@@ -19,10 +19,29 @@
 
   /*INFO COLORS*/
   --error: #d0312d;
-  --success: #98fb98; 
+  --dark-success: #98fb98; 
+  --light-success:#227222;
   --info: rgb(255, 255, 255);
 }
 
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 /*DARK THEME*/
 .dark-bg {
   background-color: var(--dark-bg);
@@ -59,10 +78,12 @@
 .error-color {
   color:var(--error);
 }
-.success-color {
-  color:var(--success);
+.dark-success-color {
+  color:var(--dark-success);
 }
-
+.light-success-color {
+  color:var(--light-success);
+}
 .pointer {
   cursor:pointer;
 }
@@ -88,7 +109,7 @@
 
 .dark-button {
   min-width:30%;
-  background-color:var(--dark-white);
+  background-color:var(--dark-ter);
   color:var(--dark-bg);
   border:none;
   outline:none;

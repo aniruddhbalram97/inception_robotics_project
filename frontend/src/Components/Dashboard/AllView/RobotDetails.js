@@ -29,7 +29,7 @@ function RobotDetails() {
       <Container
         className={`${
           styles[`${theme}-detail-table-container`]
-        } ${theme}-bg ${theme}-pri-color`}
+        }  ${theme}-pri-color`}
       >
         <div
           className={`${styles["detail-table-title"]} ${

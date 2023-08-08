@@ -4,9 +4,12 @@ export const appReducer = createSlice({
   name: "appReducer",
   initialState: {
     theme: "light",
+    authenticated: false,
+    email: false,
     auth: "login",
     view: "Summary",
     selectedData: false,
+    requestedData: false,
     robot_id: false,
   },
   reducers: {
@@ -23,11 +26,27 @@ export const appReducer = createSlice({
       state.selectedData = action.payload;
       state.robot_id = action.payload["unique_id"];
     },
+    setIsAuthenticated: (state, action) => {
+      state.authenticated = action.payload;
+    },
+    setRequestedData: (state, action) => {
+      state.requestedData = action.payload;
+    },
+    setUserDetails: (state, action) => {
+      state.email = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { themeSelector, authToggle, toggleView, setSelectedData } =
-  appReducer.actions;
+export const {
+  themeSelector,
+  authToggle,
+  toggleView,
+  setSelectedData,
+  setIsAuthenticated,
+  setRequestedData,
+  setUserDetails,
+} = appReducer.actions;
 
 export default appReducer.reducer;
