@@ -2,11 +2,14 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
-
+const bcrypt = require("bcrypt");
 //Middleware
 app.use(cors());
 app.use(express.json());
 
+// ROUTES
+
+app.use("/auth", require("./jwtAuth.js"));
 //Create an entry
 app.post("/add_entry", async (req, res) => {
   try {
