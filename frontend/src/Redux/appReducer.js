@@ -35,6 +35,13 @@ export const appReducer = createSlice({
     setUserDetails: (state, action) => {
       state.email = action.payload;
     },
+    resetState: (state, action) => {
+      state.authenticated = false;
+      state.email = false;
+      state.selectedData = false;
+      state.requestedData = false;
+      state.robot_id = false;
+    },
   },
 });
 
@@ -47,6 +54,7 @@ export const {
   setIsAuthenticated,
   setRequestedData,
   setUserDetails,
+  resetState,
 } = appReducer.actions;
 
 export default appReducer.reducer;

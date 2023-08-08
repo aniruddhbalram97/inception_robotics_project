@@ -1,15 +1,20 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { resetState } from "../../Redux/appReducer";
 
 import { CgLogOut } from "react-icons/cg";
 
 import styles from "./style.module.css";
 function Signout({ isOpen, setAuth }) {
-  const handleLogout = async (e) => {
-    e.preventDefault();
+  const dispatch = useDispatch();
+  const handleLogout = async () => {
     try {
       localStorage.removeItem("token");
+      dispatch(resetState());
       setAuth(false);
-      console.success("Logout successfully");
+
+      console.log("Logout successfully");
     } catch (err) {
       console.error(err.message);
     }
