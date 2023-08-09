@@ -4,9 +4,9 @@
     // "liveServer.settings.CustomBrowser": "chrome",
     "liveServer.settings.https": {
       "enable": true,
-      "cert": "/home/ani/Desktop/inception_robotics/nice_dcv_html/https/localhost.pem",
-      "key": "/home/ani/Desktop/inception_robotics/nice_dcv_html/https/localhost.key",
+      "cert": "/home/ani/Desktop/inception_robotics/project/nice_dcv/https/localhost.pem",
+      "key": "/home/ani/Desktop/inception_robotics/project/nice_dcv/https/localhost.key",
       "passphrase": "12345"
     },
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5502
   }

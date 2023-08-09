@@ -10,15 +10,15 @@ import Row from "react-bootstrap/Row";
 
 import styles from "./style.module.css";
 
-function Auth({ setAuth }) {
+function Auth() {
   const theme = useSelector((state) => state.appReducer.theme);
   const auth = useSelector((state) => state.appReducer.auth);
 
-  const AuthForm = ({ setAuth }) => {
+  const AuthForm = () => {
     if (auth == "login") {
-      return <Login setAuth={setAuth} />;
+      return <Login />;
     } else {
-      return <Registration setAuth={setAuth} />;
+      return <Registration />;
     }
   };
   return (
@@ -27,7 +27,7 @@ function Auth({ setAuth }) {
       fluid
     >
       <Row className={`${styles["auth-row"]}`}>
-        <AuthForm setAuth={setAuth} />
+        <AuthForm />
         <ThemeSelector isOpen={false} />
       </Row>
     </Container>

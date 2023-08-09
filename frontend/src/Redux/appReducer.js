@@ -4,13 +4,14 @@ export const appReducer = createSlice({
   name: "appReducer",
   initialState: {
     theme: "light",
-    authenticated: false,
+    isAuthenticated: false,
     email: false,
     auth: "login",
     view: "Summary",
     selectedData: false,
     requestedData: false,
     robot_id: false,
+    infoMessage: false,
   },
   reducers: {
     themeSelector: (state, action) => {
@@ -27,7 +28,7 @@ export const appReducer = createSlice({
       state.robot_id = action.payload["unique_id"];
     },
     setIsAuthenticated: (state, action) => {
-      state.authenticated = action.payload;
+      state.isAuthenticated = action.payload;
     },
     setRequestedData: (state, action) => {
       state.requestedData = action.payload;
@@ -36,11 +37,14 @@ export const appReducer = createSlice({
       state.email = action.payload;
     },
     resetState: (state, action) => {
-      state.authenticated = false;
+      state.isAuthenticated = false;
       state.email = false;
       state.selectedData = false;
       state.requestedData = false;
       state.robot_id = false;
+    },
+    setInfoMessage: (state, action) => {
+      state.infoMessage = action.payload;
     },
   },
 });
@@ -55,6 +59,7 @@ export const {
   setRequestedData,
   setUserDetails,
   resetState,
+  setInfoMessage,
 } = appReducer.actions;
 
 export default appReducer.reducer;

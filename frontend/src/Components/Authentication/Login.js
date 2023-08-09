@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { authToggle, setUserDetails } from "../../Redux/appReducer";
+import {
+  authToggle,
+  setUserDetails,
+  setIsAuthenticated,
+  setInfoMessage,
+} from "../../Redux/appReducer";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -32,15 +37,20 @@ function Login(props) {
 
       if (parseRes.jwtToken) {
         localStorage.setItem("token", parseRes.jwtToken);
-        props.setAuth(true);
+        dispatch(setIsAuthenticated(true));
         dispatch(setUserDetails(loginEmail));
         console.log("Successful Login");
+        dispatch(
+          setInfoMessage({ type: "success", message: "Login Successful!" })
+        );
         // navigate("/dashboard");w
       } else {
-        props.setAuth(false);
+        dispatch(setIsAuthenticated(false));
+        dispatch(setInfoMessage({ type: "error", message: parseRes }));
         console.error(parseRes);
       }
     } catch (err) {
+      dispatch(setInfoMessage({ type: "error", message: err.message }));
       console.error(err.message);
     }
   };

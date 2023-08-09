@@ -18,7 +18,8 @@
   --black:rgb(0, 0, 0);
 
   /*INFO COLORS*/
-  --error: #d0312d;
+  --light-error: #d0312d;
+  --dark-error: #ef4946;
   --dark-success: #98fb98; 
   --light-success:#227222;
   --info: rgb(255, 255, 255);
@@ -75,8 +76,11 @@
 .black-color{
   color:var(--black);
 }
-.error-color {
-  color:var(--error);
+.dark-error-color {
+  color:var(--dark-error);
+}
+.light-error-color {
+  color:var(--light-error);
 }
 .dark-success-color {
   color:var(--dark-success);

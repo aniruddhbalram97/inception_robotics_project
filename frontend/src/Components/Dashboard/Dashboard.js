@@ -7,7 +7,7 @@ import Sidenav from "./Sidenav";
 import MainView from "./MainView";
 
 import styles from "./style.module.css";
-function Dashboard({ setAuth }) {
+function Dashboard() {
   const dispatch = useDispatch();
   const handleRequestData = async () => {
     try {
@@ -30,7 +30,7 @@ function Dashboard({ setAuth }) {
   }, []);
   return (
     <div className={`${styles["dashboard-container"]} `}>
-      <Sidenav setAuth={setAuth} />
+      <Sidenav />
       <MainView />
     </div>
   );

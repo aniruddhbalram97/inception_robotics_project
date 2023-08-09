@@ -10,7 +10,7 @@ import { FaTh, FaBars, FaRegChartBar } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import styles from "./style.module.css";
-const Sidenav = ({ setAuth, children }) => {
+const Sidenav = ({ children }) => {
   const theme = useSelector((state) => state.appReducer.theme);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +64,7 @@ const Sidenav = ({ setAuth, children }) => {
       <div className={`${styles["sidebar-footer"]}`}>
         <ProfileName isOpen={isOpen} />
         <ThemeSelector isOpen={isOpen} />
-        <Signout isOpen={isOpen} setAuth={setAuth} />
+        <Signout isOpen={isOpen} />
       </div>
     </div>
   );

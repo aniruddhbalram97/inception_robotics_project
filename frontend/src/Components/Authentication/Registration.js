@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { authToggle, setUserDetails } from "../../Redux/appReducer";
+import {
+  authToggle,
+  setUserDetails,
+  setIsAuthenticated,
+  setInfoMessage,
+} from "../../Redux/appReducer";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 import styles from "./style.module.css";
-function Registration({ setAuth }) {
+function Registration() {
   const theme = useSelector((state) => state.appReducer.theme);
   const dispatch = useDispatch((state) => state.appReducer.dispatch);
 
@@ -35,14 +40,21 @@ function Registration({ setAuth }) {
 
       if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
-        setAuth(true);
+        dispatch(setIsAuthenticated(true));
         dispatch(setUserDetails(regEmail));
-        console.log("Register Successfully");
+        dispatch(
+          setInfoMessage({
+            type: "success",
+            message: "Registration Successful!",
+          })
+        );
       } else {
-        setAuth(false);
+        dispatch(setIsAuthenticated(true));
+        dispatch(setInfoMessage({ type: "error", message: parseRes }));
         console.error(parseRes);
       }
     } catch (err) {
+      dispatch(setInfoMessage({ type: "error", message: err.message }));
       console.error(err.message);
     }
   };
